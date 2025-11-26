@@ -7,7 +7,7 @@
 const https = require("https");
 
 // 1) Put your bot token here
-const BOT_TOKEN = process.env."8362935035:AAEk4BqHyr1yu3XN6qaXw_5zAXcdOcsXHEw";
+const BOT_TOKEN = "8362935035:AAEk4BqHyr1yu3XN6qaXw_5zAXcdOcsXHEw";
 const API_HOST = "api.telegram.org";
 const API_BASE_PATH = `/bot${BOT_TOKEN}/`;
 
