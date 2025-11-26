@@ -7,7 +7,7 @@
 const https = require("https");
 
 // 1) Put your bot token here
-const BOT_TOKEN = "8362935035:AAEk4BqHyr1yu3XN6qaXw_5zAXcdOcsXHEw";
+const BOT_TOKEN = process.env."8362935035:AAEk4BqHyr1yu3XN6qaXw_5zAXcdOcsXHEw";
 const API_HOST = "api.telegram.org";
 const API_BASE_PATH = `/bot${BOT_TOKEN}/`;
 
@@ -25,6 +25,21 @@ const votes = {};
 let updateOffset = 0;
 let votingOpen = false;
 let lastVotingDate = null; // YYYY-MM-DD
+
+// Tiny HTTP server just for Render's port check
+const http = require("http");
+
+const PORT = process.env.PORT || 3000;
+
+http
+  .createServer((req, res) => {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Lunch bot is running\n");
+  })
+  .listen(PORT, () => {
+    console.log(`HTTP server listening on port ${PORT}`);
+  });
+
 
 function callTelegram(method, params) {
   return new Promise((resolve, reject) => {
