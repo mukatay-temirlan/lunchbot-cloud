@@ -1,0 +1,12 @@
+{
+  "name": "lunchbot",
+  "version": "1.0.0",
+  "main": "lunch_bot.js",
+  "scripts": {
+    "start": "node lunch_bot.js"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
+
