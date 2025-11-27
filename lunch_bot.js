@@ -14,11 +14,12 @@ const API_BASE_PATH = `/bot${BOT_TOKEN}/`;
 // 2) Put your group chat ID here (we'll fill this after /chatid)
 const TARGET_CHAT_ID = -1003197836887;
 
-// 3) Time window (local Mac time)
-const OPEN_HOUR = 8;
-const OPEN_MINUTE = 0;
-const CLOSE_HOUR = 10;
+// 3) Time window in UTC so that it matches 08:30–10:30 in Kazakhstan (UTC+5)
+const OPEN_HOUR = 3;   // 03:30 UTC = 08:30 KZ
+const OPEN_MINUTE = 30;
+const CLOSE_HOUR = 5;  // 05:30 UTC = 10:30 KZ
 const CLOSE_MINUTE = 30;
+
 
 // Votes storage
 const votes = {};
@@ -207,7 +208,7 @@ async function handleMessage(msg) {
     await sendText(
       chatId,
       "Hi! I’m the lunch bot.\n" +
-        "I ask lunch questions Mon–Fri between 08:00 and 10:30.\n" +
+        "I ask lunch questions Mon–Fri between 08:30 and 10:30.\n" +
         "/summary – show today's votes\n" +
         "/chatid – show chat ID"
     );
